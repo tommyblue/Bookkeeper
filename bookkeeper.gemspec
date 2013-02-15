@@ -7,16 +7,19 @@ require "bookkeeper/version"
 Gem::Specification.new do |s|
   s.name        = "bookkeeper"
   s.version     = Bookkeeper::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Bookkeeper."
-  s.description = "TODO: Description of Bookkeeper."
+  s.authors     = ["Tommaso Visconti"]
+  s.email       = ["tommaso.visconti@gmail.com"]
+  s.homepage    = "http://www.tommyblue.it"
+  s.summary     = ""
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.12"
-  # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "factory_girl_rails"
 end
