@@ -2,49 +2,42 @@ require 'spec_helper'
 
 module Bookkeeper
   describe Purchase do
-    it "is valid with a title" do
-      purchase = Purchase.new(title: 'test')
-      expect(purchase).to be_valid
-    end
+    context "model attributes validations" do
+      it "is valid with a title" do
+        expect(build(:bookkeeper_purchase)).to be_valid
+      end
 
-    it "is invalid without a title" do
-      purchase = Purchase.new(title: '')
-      expect(purchase).to_not be_valid
-    end
+      it "is invalid without a title" do
+        expect(build(:bookkeeper_purchase, title: nil)).to have(1).errors_on(:title)
+      end
 
-    it "has an optional description" do
-      purchase = Purchase.new(title: 'test', description: 'test description')
-      expect(purchase).to be_valid
-    end
+      it "has an optional description" do
+        expect(build(:bookkeeper_purchase, description: nil)).to be_valid
+      end
 
-    it "has an optional purchase date" do
-      purchase = Purchase.new(title: 'test', purchase_date: 2.years.ago)
-      expect(purchase).to be_valid
-    end
+      it "has an optional purchase date" do
+        expect(build(:bookkeeper_purchase, purchase_date: nil)).to be_valid
+      end
 
-    it "has an optional warranty duration" do
-      purchase = Purchase.new(title: 'test', warranty_duration: 24)
-      expect(purchase).to be_valid
-    end
+      it "has an optional warranty duration" do
+        expect(build(:bookkeeper_purchase, warranty_duration: nil)).to be_valid
+      end
 
-    it "has a numeric warranty duration" do
-      purchase = Purchase.new(title: 'test', warranty_duration: 24)
-      expect(purchase).to be_valid
-    end
+      it "has a numeric warranty duration" do
+        expect(build(:bookkeeper_purchase)).to be_valid
+      end
 
-    it "denies a not-numeric warranty duration" do
-      purchase = Purchase.new(title: 'test', warranty_duration: 'not_valid')
-      expect(purchase).to_not be_valid
-    end
+      it "denies a not-numeric warranty duration" do
+        expect(build(:bookkeeper_purchase, warranty_duration: 'not_valid')).to have(1).errors_on(:warranty_duration)
+      end
 
-    it "has a valid date as purchase date" do
-      purchase = Purchase.new(title: 'test', purchase_date: 24.months.ago)
-      expect(purchase).to be_valid
-    end
+      it "has a valid date as purchase date" do
+        expect(build(:bookkeeper_purchase, purchase_date: 24.months.ago)).to be_valid
+      end
 
-    it "denies an invalid date as purchase date" do
-      purchase = Purchase.new(title: 'test', purchase_date: 'not_valid')
-      expect(purchase).to_not be_valid
+      it "denies an invalid date as purchase date" do
+        expect(build(:bookkeeper_purchase, purchase_date: 'not_valid')).to have(1).errors_on(:purchase_date)
+      end
     end
   end
 end
