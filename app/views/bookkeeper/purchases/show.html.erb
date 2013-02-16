@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @purchase.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @purchase.description %>
+</p>
+
+<p>
+  <b>Purchase date:</b>
+  <%= @purchase.purchase_date %>
+</p>
+
+<p>
+  <b>Warranty duration:</b>
+  <%= @purchase.warranty_duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>
