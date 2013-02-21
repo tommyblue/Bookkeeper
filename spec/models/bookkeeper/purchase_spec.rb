@@ -19,6 +19,10 @@ module Bookkeeper
         expect(build(:bookkeeper_purchase, purchase_date: nil)).to be_valid
       end
 
+      it "allows a blank purchase date" do
+        expect(build(:bookkeeper_purchase, purchase_date: '')).to be_valid
+      end
+
       it "has an optional warranty duration" do
         expect(build(:bookkeeper_purchase, warranty_duration: nil)).to be_valid
       end
