@@ -1,33 +1,16 @@
-<%= form_for(@purchase) do |f| %>
-  <% if @purchase.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+<%= simple_form_for @purchase, html: { class: 'form-horizontal' } do |f| %>
 
-      <ul>
-      <% @purchase.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_notification %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :purchase_date, :wrapper => :prepend do %>
+      <%= content_tag :span, '<i class="icon-th"></i>'.html_safe, class: "add-on calendar" %><%= f.input_field :purchase_date, as: :datepicker %>
+    <% end %>
+    <%= f.input :warranty_duration %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :purchase_date %><br />
-    <%= f.date_select :purchase_date %>
-  </div>
-  <div class="field">
-    <%= f.label :warranty_duration %><br />
-    <%= f.number_field :warranty_duration %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit 'Save', class: 'btn' %>
   </div>
 <% end %>
