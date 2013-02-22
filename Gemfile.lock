@@ -175,6 +175,7 @@ DEPENDENCIES
   faker
   guard-rspec
   jquery-rails
+  pry
   rb-fsevent (~> 0.9.1)
   rmagick
   rspec-rails

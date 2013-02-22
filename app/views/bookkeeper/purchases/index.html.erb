@@ -7,6 +7,7 @@
       <th>Description</th>
       <th>Purchase date</th>
       <th>Warranty duration</th>
+      <th>Receipt</th>
       <th></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= purchase.description %></td>
         <td><%= purchase.purchase_date %></td>
         <td><%= purchase.warranty_duration %></td>
+        <td><%= link_to "<i class='icon-download-alt'></i> #{purchase.receipt.file.filename}".html_safe, purchase.receipt.url, class: 'btn btn-mini' %></td>
         <td>
           <%= link_to '<i class="icon-search"></i> Show'.html_safe, purchase, class: 'btn btn-mini' %>
           <%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_purchase_path(purchase), class: 'btn btn-mini' %>
