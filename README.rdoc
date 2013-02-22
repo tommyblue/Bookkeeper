@@ -1,5 +1,0 @@
-= Bookkeeper
-
-This project rocks and uses MIT-LICENSE.
-
-http://viget.com/extend/rails-engine-testing-with-rspec-capybara-and-factorygirl

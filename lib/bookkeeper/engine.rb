@@ -1,3 +1,8 @@
+require 'validates_timeliness'
+require 'rmagick'
+require 'carrierwave'
+require 'simple_form'
+
 module Bookkeeper
   class Engine < ::Rails::Engine
     isolate_namespace Bookkeeper
