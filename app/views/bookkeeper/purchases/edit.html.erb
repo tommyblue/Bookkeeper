@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @purchase %> |
-<%= link_to 'Back', purchases_path, class: 'btn' %>
+<%= link_to '<i class="icon-search"></i> Show'.html_safe, @purchase, class: 'btn' %>
+<%= link_to '<i class="icon-arrow-left"></i> Back'.html_safe, purchases_path, class: 'btn' %>

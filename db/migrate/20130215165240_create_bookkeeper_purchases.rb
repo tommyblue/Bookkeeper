@@ -5,7 +5,7 @@ class CreateBookkeeperPurchases < ActiveRecord::Migration
       t.text :description
       t.date :purchase_date
       t.integer :warranty_duration
-
+      t.string :receipt
       t.timestamps
     end
   end

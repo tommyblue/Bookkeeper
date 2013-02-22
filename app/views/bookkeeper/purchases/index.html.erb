@@ -8,8 +8,6 @@
       <th>Purchase date</th>
       <th>Warranty duration</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,9 +17,11 @@
         <td><%= purchase.description %></td>
         <td><%= purchase.purchase_date %></td>
         <td><%= purchase.warranty_duration %></td>
-        <td><%= link_to 'Show', purchase, class: 'btn' %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase), class: 'btn' %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %></td>
+        <td>
+          <%= link_to '<i class="icon-search"></i> Show'.html_safe, purchase, class: 'btn btn-mini' %>
+          <%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_purchase_path(purchase), class: 'btn btn-mini' %>
+          <%= link_to '<i class="icon-remove"></i> Destroy'.html_safe, purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 
 <br />
 
-<%= link_to 'New Purchase', new_purchase_path, class: 'btn' %>
+<%= link_to '<i class="icon-plus"></i> New Purchase'.html_safe, new_purchase_path, class: 'btn' %>

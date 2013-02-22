@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bookkeeper (0.0.1)
+    bookkeeper (0.0.1.pre)
       rails (~> 3.2.12)
 
 GEM
@@ -117,6 +117,7 @@ GEM
     rb-fsevent (0.9.3)
     rdoc (3.12.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -175,6 +176,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   rb-fsevent (~> 0.9.1)
+  rmagick
   rspec-rails
   simple_form
   sqlite3

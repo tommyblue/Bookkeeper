@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20130215165240) do
     t.text     "description"
     t.date     "purchase_date"
     t.integer  "warranty_duration"
+    t.string   "receipt"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

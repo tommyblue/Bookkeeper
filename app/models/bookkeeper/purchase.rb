@@ -1,6 +1,8 @@
 module Bookkeeper
   class Purchase < ActiveRecord::Base
-    attr_accessible :description, :purchase_date, :title, :warranty_duration
+    mount_uploader :receipt, ReceiptUploader
+
+    attr_accessible :description, :purchase_date, :title, :warranty_duration, :receipt
 
     validates_presence_of :title
     validates_numericality_of :warranty_duration, allow_nil: true

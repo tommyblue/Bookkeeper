@@ -8,6 +8,7 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem 'validates_timeliness', '~> 3.0'
+gem 'rmagick'
 gem 'carrierwave'
 gem 'simple_form'
 gem 'country_select'

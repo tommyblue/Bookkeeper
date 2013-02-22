@@ -27,6 +27,10 @@ module Bookkeeper
         expect(build(:bookkeeper_purchase, warranty_duration: nil)).to be_valid
       end
 
+      it "has an optional receipt" do
+        expect(build(:bookkeeper_purchase, receipt: nil)).to be_valid
+      end
+
       it "has a numeric warranty duration" do
         expect(build(:bookkeeper_purchase)).to be_valid
       end
