@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "Bookkeeper add the possibility to store purchases and their receipts to a Rails application"
   s.description = "Bokkeeper is a Rails mountable engine with Twitter Bootstrap compatible markup."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.12"
