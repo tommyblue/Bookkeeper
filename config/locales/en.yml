@@ -1,0 +1,35 @@
+en:
+  bookkeeper:
+    # actions
+    actions:
+      save: 'Save'
+      back: 'Back'
+      show: 'Show'
+      new: 'New'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      destroy_confirm: 'Are you sure?'
+    # models
+    models:
+      purchase:
+        attributes:
+          title: 'Title'
+          description: 'Description'
+          purchase_date: 'Purchase date'
+          warranty_duration: 'Warranty duration'
+          receipt: 'Receipt'
+    # controllers
+    controllers:
+      purchases:
+        created: 'Purchase was successfully created.'
+        updated: 'Purchase was successfully updated.'
+        destroyed: 'Purchase was successfully deleted.'
+    # views
+    purchases:
+      index:
+        title: 'Listing purchases'
+        months: 'months'
+      new:
+        title: 'New purchase'
+      edit:
+        title: 'Edit purchase'

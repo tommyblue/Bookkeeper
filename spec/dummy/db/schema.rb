@@ -23,4 +23,6 @@ ActiveRecord::Schema.define(:version => 20130215165240) do
     t.datetime "updated_at",        :null => false
   end
 
+  add_index "bookkeeper_purchases", ["title"], :name => "index_bookkeeper_purchases_on_title"
+
 end

@@ -38,7 +38,7 @@ module Bookkeeper
 
       respond_to do |format|
         if @purchase.save
-          format.html { redirect_to purchases_path, notice: 'Purchase was successfully created.' }
+          format.html { redirect_to purchases_path, notice: I18n.t('.bookkeeper.controllers.purchases.created') }
           format.json { render json: @purchase, status: :created, location: @purchase }
         else
           format.html { render action: "new" }
@@ -52,7 +52,7 @@ module Bookkeeper
 
       respond_to do |format|
         if @purchase.update_attributes(params[:purchase])
-          format.html { redirect_to purchases_path, notice: 'Purchase was successfully updated.' }
+          format.html { redirect_to purchases_path, notice: I18n.t('.bookkeeper.controllers.purchases.updated') }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
@@ -64,6 +64,7 @@ module Bookkeeper
     def destroy
       @purchase = Purchase.find(params[:id])
       @purchase.destroy
+      flash[:notice] = I18n.t('.bookkeeper.controllers.purchases.destroyed')
 
       respond_to do |format|
         format.html { redirect_to purchases_url }

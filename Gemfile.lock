@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bookkeeper (0.0.1.pre)
+    bookkeeper (0.0.1.beta1)
       carrierwave (~> 0.8.0)
       rails (~> 3.2.12)
       rmagick (~> 2.13.2)
