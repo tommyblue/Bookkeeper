@@ -17,6 +17,7 @@ en:
           purchase_date: 'Purchase date'
           warranty_duration: 'Warranty duration'
           receipt: 'Receipt'
+          updated_at: 'Last update'
     # controllers
     controllers:
       purchases:
@@ -24,6 +25,9 @@ en:
         updated: 'Purchase was successfully updated.'
         destroyed: 'Purchase was successfully deleted.'
     # views
+    search:
+      create:
+        title: 'Search results for "%{q}"'
     purchases:
       index:
         title: 'Listing purchases'
@@ -32,3 +36,5 @@ en:
         title: 'New purchase'
       edit:
         title: 'Edit purchase'
+      search:
+        search: 'Search'
