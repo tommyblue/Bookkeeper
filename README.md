@@ -1,4 +1,4 @@
-# Bookkeeper [![Build Status](https://secure.travis-ci.org/guard/guard.png?branch=master)](http://travis-ci.org/guard/guard) [![Dependency Status](https://gemnasium.com/tommyblue/Bookkeeper.png)](https://gemnasium.com/tommyblue/Bookkeeper) [![Code Climate](https://codeclimate.com/github/tommyblue/Bookkeeper.png)](https://codeclimate.com/github/tommyblue/Bookkeeper)
+# Bookkeeper [![Build Status](https://secure.travis-ci.org/tommyblue/Bookkeeper.png?branch=master)](http://travis-ci.org/tommyblue/Bookkeeper) [![Dependency Status](https://gemnasium.com/tommyblue/Bookkeeper.png)](https://gemnasium.com/tommyblue/Bookkeeper) [![Code Climate](https://codeclimate.com/github/tommyblue/Bookkeeper.png)](https://codeclimate.com/github/tommyblue/Bookkeeper)
 
 Bookkeeper is a Rails engine with the aim of allowing a Rails application (at least 3.1) to handle the purchases you made and their receipt.
 
