@@ -4,7 +4,6 @@ en:
     actions:
       save: 'Save'
       back: 'Back'
-      show: 'Show'
       new: 'New'
       edit: 'Edit'
       destroy: 'Destroy'

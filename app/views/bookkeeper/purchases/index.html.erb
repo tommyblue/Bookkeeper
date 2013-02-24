@@ -20,7 +20,6 @@
         <td><%= purchase.warranty_duration %> <%=t '.months' %></td>
         <td><%= link_to "<i class='icon-download-alt'></i> #{purchase.receipt.file.filename}".html_safe, purchase.receipt.url, class: 'btn btn-mini' if purchase.receipt.file %></td>
         <td>
-          <%= link_to ('<i class="icon-search"></i> ' + t('bookkeeper.actions.show')).html_safe, purchase, class: 'btn btn-mini' %>
           <%= link_to ('<i class="icon-pencil"></i> ' + t('bookkeeper.actions.edit')).html_safe, edit_purchase_path(purchase), class: 'btn btn-mini' %>
           <%= link_to ('<i class="icon-remove"></i> ' + t('bookkeeper.actions.destroy')).html_safe, purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
