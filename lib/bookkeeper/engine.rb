@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'validates_timeliness'
 require 'rmagick'
 require 'carrierwave'
