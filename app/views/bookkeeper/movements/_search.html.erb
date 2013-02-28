@@ -1,0 +1,6 @@
+<div class="pull-right">
+  <%= form_tag search_index_path, class: "navbar-search pull-left" do %>
+    <%= text_field_tag 'search[q]', '', class: 'search-query', placeholder: t('.search') %>
+  <% end %>
+</div>
+

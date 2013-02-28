@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'validates_timeliness'
-require 'RMagick'
+#require 'RMagick'
 require 'carrierwave'
 require 'simple_form'
 

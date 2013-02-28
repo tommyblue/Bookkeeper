@@ -18,12 +18,22 @@ en:
           warranty_duration: 'Warranty duration'
           receipt: 'Receipt'
           updated_at: 'Last update'
+      movement:
+        attributes:
+          amount: 'Amount'
+          description: 'Description'
+          created_at: 'Creation date'
+          updated_at: 'Last update'
     # controllers
     controllers:
       purchases:
         created: 'Purchase was successfully created.'
         updated: 'Purchase was successfully updated.'
         destroyed: 'Purchase was successfully deleted.'
+      movementss:
+        created: 'Movement was successfully created.'
+        updated: 'Movement was successfully updated.'
+        destroyed: 'Movement was successfully deleted.'
     # views
     search:
       create:
@@ -36,5 +46,18 @@ en:
         title: 'New purchase'
       edit:
         title: 'Edit purchase'
+      search:
+        search: 'Search'
+    balance:
+      index:
+        title: 'Last movements'
+        new: 'Insert new movement'
+    movements:
+      index:
+        title: 'Listing movements'
+      new:
+        title: 'New movement'
+      edit:
+        title: 'Edit movement'
       search:
         search: 'Search'

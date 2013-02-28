@@ -24,20 +24,6 @@ module Bookkeeper
 
     end
 
-    # describe "GET show" do
-    #   it "assigns the requested purchase as @purchase" do
-    #     purchase = create(:bookkeeper_purchase)
-    #     get :show, { id: purchase.to_param, use_route: :purchases }
-    #     expect(assigns(:purchase)).to eq purchase
-    #   end
-
-    #   it "renders the :show template" do
-    #     purchase = create(:bookkeeper_purchase)
-    #     get :show, { id: purchase.to_param, use_route: :purchases }
-    #     expect(response).to render_template :show
-    #   end
-    # end
-
     describe "GET new" do
       it "assigns a new purchase as @purchase" do
         get :new, { use_route: :purchases }

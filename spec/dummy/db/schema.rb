@@ -11,18 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215165240) do
+ActiveRecord::Schema.define(:version => 20130228223207) do
 
-  create_table "bookkeeper_purchases", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.date     "purchase_date"
-    t.integer  "warranty_duration"
-    t.string   "receipt"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+  create_table "bookkeeper_movements", :force => true do |t|
+    t.decimal  "amount",      :precision => 8, :scale => 2
+    t.string   "description"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
-  add_index "bookkeeper_purchases", ["title"], :name => "index_bookkeeper_purchases_on_title"
+  add_index "bookkeeper_movements", ["amount"], :name => "index_bookkeeper_movements_on_amount"
+  add_index "bookkeeper_movements", ["description"], :name => "index_bookkeeper_movements_on_description"
 
 end
