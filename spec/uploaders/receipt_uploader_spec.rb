@@ -14,11 +14,11 @@ describe ReceiptUploader do
     @uploader.remove!
   end
 
-  context 'the thumb version' do
-    it "should scale down a landscape image to be exactly 64 by 64 pixels" do
-      @uploader.thumb.should have_dimensions(64, 64)
-    end
-  end
+  # context 'the thumb version' do
+  #   it "should scale down a landscape image to be exactly 64 by 64 pixels" do
+  #     @uploader.thumb.should have_dimensions(64, 64)
+  #   end
+  # end
 
   it "should make the image readable only to the owner and not executable" do
     @uploader.should have_permissions(0600)

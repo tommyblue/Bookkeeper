@@ -11,16 +11,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228223207) do
+ActiveRecord::Schema.define(:version => 20130308231918) do
+
+  create_table "bookkeeper_accounts", :force => true do |t|
+    t.string   "title"
+    t.decimal  "initial_balance", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "balance",         :precision => 8, :scale => 2
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
+  end
+
+  add_index "bookkeeper_accounts", ["title"], :name => "index_bookkeeper_accounts_on_title"
+
+  create_table "bookkeeper_categories", :force => true do |t|
+    t.integer  "categorizable_id"
+    t.string   "categorizable_type"
+    t.string   "name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "bookkeeper_movements", :force => true do |t|
+    t.integer  "account_id"
     t.decimal  "amount",      :precision => 8, :scale => 2
     t.string   "description"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
 
+  add_index "bookkeeper_movements", ["account_id"], :name => "index_bookkeeper_movements_on_account_id"
   add_index "bookkeeper_movements", ["amount"], :name => "index_bookkeeper_movements_on_amount"
   add_index "bookkeeper_movements", ["description"], :name => "index_bookkeeper_movements_on_description"
+
+  create_table "bookkeeper_purchases", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "purchase_date"
+    t.integer  "warranty_duration"
+    t.string   "receipt"
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
+    t.boolean  "invoice",                                         :default => false
+    t.decimal  "amount",            :precision => 8, :scale => 2
+  end
+
+  add_index "bookkeeper_purchases", ["title"], :name => "index_bookkeeper_purchases_on_title"
 
 end

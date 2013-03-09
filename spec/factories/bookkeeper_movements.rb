@@ -2,6 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :bookkeeper_movement, :class => 'Bookkeeper::Movement' do
+    association :account, factory: :bookkeeper_account
     amount Random.rand(-200..200)
     description { Faker::Lorem.sentence }
 

@@ -6,7 +6,13 @@
     <%= f.input :title %>
     <%= f.input :description, input_html: { class: 'input-xxlarge', rows: 4 } %>
     <%= f.input :purchase_date, :wrapper => :prepend do %>
-      <%= content_tag :span, '<i class="icon-th"></i>'.html_safe, class: "add-on calendar" %><%= f.input_field :purchase_date, as: :datepicker, data: { 'date-format' => 'dd/mm/yyyy' } %>
+      <%= content_tag :span, '<i class="icon-calendar"></i>'.html_safe, class: "add-on calendar" %>
+      <%= f.input_field :purchase_date, as: :datepicker, data: { 'date-format' => 'dd/mm/yyyy' } %>
+    <% end %>
+    <%= f.input :invoice %>
+    <%= f.input :amount, :wrapper => :prepend do %>
+      <%= content_tag :span, '<i class="icon-money"></i>'.html_safe, class: "add-on calendar" %>
+      <%= f.input_field :amount, class: "input-mini" %>
     <% end %>
     <%= f.input :warranty_duration, collection: [["6 months", 6], ["1 year", 12], ["2 years", 24], ["3 years", 36]], input_html: { class: 'input-small' } %>
     <%= f.input :receipt %>

@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.12"
   s.add_dependency 'validates_timeliness', '~> 3.0'
-  s.add_dependency 'rmagick', '~> 2.13.2'
   s.add_dependency 'carrierwave', '~> 0.8.0'
   s.add_dependency 'simple_form', '~> 2.0.4'
 
