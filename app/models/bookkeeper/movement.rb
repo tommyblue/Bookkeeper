@@ -1,6 +1,6 @@
 module Bookkeeper
   class Movement < ActiveRecord::Base
-    attr_accessible :amount, :description
+    attr_accessible :amount, :description, :date
 
     belongs_to :account, class_name: "Bookkeeper::Account"
     has_many :categories, as: :categorizable
@@ -9,13 +9,23 @@ module Bookkeeper
     validates :description, presence: true
     validate :amount_cannot_be_zero
     validates :account, presence: true
+    validates :date, presence: true
 
-    default_scope order('created_at DESC')
+    default_scope order('date DESC, created_at DESC')
 
+    before_validation do
+      self.account = Account.default unless self.account
+    end
 
     after_save do
-      self.account.rebuild_balance
+      self.account.update_balance
     end
+
+    def incoming?
+      self.class == Bookkeeper::Incoming
+    end
+
+    protected
 
     def amount_cannot_be_zero
       if !amount.blank? && amount == 0

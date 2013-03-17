@@ -1,0 +1,16 @@
+<%= f.error_notification %>
+
+<div class="form-inputs">
+  <%= f.input :amount, :wrapper => :append do %>
+    <%= f.input_field :amount, class: "input-mini" %>
+    <%= content_tag :span, '&euro;'.html_safe, class: "add-on" %>
+  <% end %>
+  <%= f.input :description, input_html: { class: 'input-xxlarge' } %>
+  <%= f.input :date, :wrapper => :prepend do %>
+    <%= content_tag :span, '<i class="icon-calendar"></i>'.html_safe, class: "add-on calendar" %>
+    <%= f.input_field :date, as: :datepicker, data: { 'date-format' => 'dd/mm/yyyy' } %>
+  <% end %>
+</div>
+<div class="form-actions">
+  <%= button_tag ('<i class="icon-ok"></i> ' + t('bookkeeper.actions.save')).html_safe, class: 'btn' %>
+</div>

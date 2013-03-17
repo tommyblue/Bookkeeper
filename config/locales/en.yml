@@ -27,13 +27,19 @@ en:
     # controllers
     controllers:
       purchases:
-        created: 'Purchase was successfully created.'
-        updated: 'Purchase was successfully updated.'
-        destroyed: 'Purchase was successfully deleted.'
-      movementss:
-        created: 'Movement was successfully created.'
-        updated: 'Movement was successfully updated.'
-        destroyed: 'Movement was successfully deleted.'
+        created: 'The purchase was successfully created.'
+        updated: 'The purchase was successfully updated.'
+        destroyed: 'The purchase was successfully deleted.'
+      movements:
+        created: 'The movement was successfully created.'
+        updated: 'The movement was successfully updated.'
+        destroyed: 'The movement was successfully deleted.'
+      incomings:
+        created: 'The movement was successfully created.'
+        updated: 'The movement was successfully updated.'
+      outgoings:
+        created: 'The movement was successfully created.'
+        updated: 'The movement was successfully updated.'
     # views
     search:
       create:
@@ -51,7 +57,8 @@ en:
     balance:
       index:
         title: 'Last movements'
-        new: 'Insert new movement'
+        new_incoming: 'New incoming'
+        new_outgoing: 'New outgoing'
     movements:
       index:
         title: 'Listing movements'

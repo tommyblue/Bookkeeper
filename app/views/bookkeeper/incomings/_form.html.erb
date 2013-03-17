@@ -1,0 +1,3 @@
+<%= simple_form_for @incoming, html: { class: 'form-horizontal' } do |f| %>
+  <%= render partial: 'bookkeeper/shared/movement_form', locals: { f: f } %>
+<% end %>
