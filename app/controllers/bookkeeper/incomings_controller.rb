@@ -29,5 +29,13 @@ module Bookkeeper
         render action: "edit"
       end
     end
+
+    def destroy
+      @incoming = Incoming.find(params[:id])
+      @incoming.destroy
+      flash[:notice] = I18n.t('.bookkeeper.controllers.incomings.destroyed')
+
+      redirect_to balance_index_path
+    end
   end
 end

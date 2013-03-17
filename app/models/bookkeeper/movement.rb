@@ -11,13 +11,18 @@ module Bookkeeper
     validates :account, presence: true
     validates :date, presence: true
 
-    default_scope order('date DESC, created_at DESC')
+    scope :ordered, order('date ASC, created_at ASC')
+    scope :reverse_ordered, order('date DESC, created_at DESC')
 
     before_validation do
       self.account = Account.default unless self.account
     end
 
     after_save do
+      self.account.update_balance
+    end
+
+    after_destroy do
       self.account.update_balance
     end
 

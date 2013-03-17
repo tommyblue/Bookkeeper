@@ -30,16 +30,14 @@ en:
         created: 'The purchase was successfully created.'
         updated: 'The purchase was successfully updated.'
         destroyed: 'The purchase was successfully deleted.'
-      movements:
-        created: 'The movement was successfully created.'
-        updated: 'The movement was successfully updated.'
-        destroyed: 'The movement was successfully deleted.'
       incomings:
         created: 'The movement was successfully created.'
         updated: 'The movement was successfully updated.'
+        destroyed: 'The movement was successfully deleted.'
       outgoings:
         created: 'The movement was successfully created.'
         updated: 'The movement was successfully updated.'
+        destroyed: 'The movement was successfully deleted.'
     # views
     search:
       create:
@@ -59,6 +57,10 @@ en:
         title: 'Last movements'
         new_incoming: 'New incoming'
         new_outgoing: 'New outgoing'
+        date: "Date"
+        incomings: "Incomings"
+        outgoings: "Outgoings"
+        balance_chart_title: "Balance"
     movements:
       index:
         title: 'Listing movements'

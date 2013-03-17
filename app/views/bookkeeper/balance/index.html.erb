@@ -1,5 +1,13 @@
 <h1><%= t '.title' %></h1>
 
+<h3><%=t '.account_balance' %></h3>
+<p><%= number_to_currency @account.balance %></p>
+
+<div class="row">
+  <div id="balance_chart" class="span5" style="height: 500px;"></div>
+  <div id="movements_chart" class="span7" style="height: 500px;"></div>
+</div>
+
 <table class='table table-striped table-condensed table-bordered'>
   <thead>
     <tr>
@@ -12,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @movements.each do |movement| %>
+    <% @movements.reverse_ordered.each do |movement| %>
       <tr>
         <td><span class="label label-<%= movement.incoming? ? "success" : "warning" %>"><%= (movement.incoming? ? '<i class="icon-circle-arrow-down"></i> '+t(".incoming") : '<i class="icon-circle-arrow-down"></i> '+t(".outgoing")).html_safe %></span></td>
         <td><%= number_to_currency movement.amount %></td>
@@ -36,3 +44,70 @@
 
 <%= link_to ('<i class="icon-circle-arrow-down"></i> ' + t('.new_incoming')).html_safe, new_incoming_path, class: 'btn btn-success' %>
 <%= link_to ('<i class="icon-circle-arrow-up"></i> ' + t('.new_outgoing')).html_safe, new_outgoing_path, class: 'btn btn-warning' %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawBalanceChart);
+    google.setOnLoadCallback(drawMovementsChart);
+    function drawMovementsChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', '<%= t ".date" %>');
+      data.addColumn('number', '<%= t ".movement" %>');
+      data.addRows([
+        <% @movements.ordered.each do |movement| %>
+          <% if movement.incoming? %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= movement.amount %> ],
+          <% else %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= -movement.amount %> ],
+          <% end %>
+        <% end %>
+      ]);
+
+      var options = {
+        isStacked: true,
+        title: '<%=t ".movements_chart_title" %>',
+        hAxis: { title: '<%=t ".title" %>', titleTextStyle: {color: 'red'} },
+        colors: ['#468847', '#F89406']
+      };
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, {
+          type: 'number',
+          label: '<%=t ".incomings" %>',
+          calc: function (dt, row) {
+              return (dt.getValue(row, 1) > 0) ? dt.getValue(row, 1) : null;
+          }
+        }, {
+          type: 'number',
+          label: '<%=t ".outgoings" %>',
+          calc: function (dt, row) {
+              return (dt.getValue(row, 1) <  0) ? dt.getValue(row, 1) : null;
+          }
+      }]);
+      var chart = new google.visualization.ColumnChart(document.getElementById('movements_chart'));
+      chart.draw(view, options);
+    }
+
+    function drawBalanceChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['<%=t ".date" %>', 'Balance'],
+          <% balance = @account.initial_balance %>
+          ['<%= @account.start_date.strftime("%d/%m/%Y") %>', <%= balance %> ],
+          <% @movements.ordered.each do |movement| %>
+            <% movement.incoming? ? (balance += movement.amount) : (balance -= movement.amount) %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= balance %> ],
+          <% end %>
+        ]);
+
+        var options = {
+          title: '<%=t ".balance_chart_title" %>',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('balance_chart'));
+        chart.draw(data, options);
+      }
+
+  </script>
+<% end %>
