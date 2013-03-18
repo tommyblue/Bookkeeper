@@ -58,9 +58,12 @@ en:
         new_incoming: 'New incoming'
         new_outgoing: 'New outgoing'
         date: "Date"
+      balance_chart:
+        title: "Balance"
+      movements_chart:
+        title: "Movements"
         incomings: "Incomings"
         outgoings: "Outgoings"
-        balance_chart_title: "Balance"
     movements:
       index:
         title: 'Listing movements'

@@ -1,0 +1,26 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    google.setOnLoadCallback(drawBalanceChart);
+    function drawBalanceChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['<%=t ".date" %>', null],
+          <% balance = @account.initial_balance %>
+          ['<%= @account.start_date.strftime("%d/%m/%Y") %>', <%= balance %> ],
+          <% @movements.ordered.each do |movement| %>
+            <% movement.incoming? ? (balance += movement.amount) : (balance -= movement.amount) %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= balance %> ],
+          <% end %>
+        ]);
+
+        var options = {
+          title: '<%=t ".title" %>',
+          colors: ['#F89406']
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('balance_chart'));
+        chart.draw(data, options);
+      }
+
+  </script>
+<% end %>
+

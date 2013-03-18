@@ -1,0 +1,46 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawMovementsChart);
+    function drawMovementsChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', '<%= t ".date" %>');
+      data.addColumn('number', '<%= t ".movement" %>');
+      data.addRows([
+        <% @movements.ordered.each do |movement| %>
+          <% if movement.incoming? %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= movement.amount %> ],
+          <% else %>
+            ['<%= movement.date.strftime("%d/%m/%Y") %>', <%= -movement.amount %> ],
+          <% end %>
+        <% end %>
+      ]);
+
+      var options = {
+        isStacked: true,
+        title: '<%=t ".title" %>',
+        colors: ['#468847', '#F89406'],
+        chartArea: { top: 30 },
+        hAxis: { format:'#.##€' },
+      };
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, {
+          type: 'number',
+          label: null,
+          calc: function (dt, row) {
+              return (dt.getValue(row, 1) > 0) ? dt.getValue(row, 1) : null;
+          }
+        }, {
+          type: 'number',
+          label: null,
+          calc: function (dt, row) {
+              return (dt.getValue(row, 1) <  0) ? dt.getValue(row, 1) : null;
+          }
+      }]);
+      var chart = new google.visualization.BarChart(document.getElementById('movements_chart'));
+      chart.draw(view, options);
+    }
+  </script>
+<% end %>
+
