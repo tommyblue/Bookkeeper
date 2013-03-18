@@ -33,7 +33,7 @@
               <% else %>
                 <%= link_to ('<i class="icon-pencil"></i> ' + t('bookkeeper.actions.edit')).html_safe, edit_outgoing_path(movement), class: 'btn btn-mini' %>
               <% end %>
-              <%= link_to ('<i class="icon-remove"></i> ' + t('bookkeeper.actions.destroy')).html_safe, movement, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+              <%= link_to ('<i class="icon-remove"></i> ' + t('bookkeeper.actions.destroy')).html_safe, movement, method: :delete, data: { confirm: t('bookkeeper.actions.destroy_confirm', default: 'Are you sure?') }, class: 'btn btn-mini btn-danger' %>
             </td>
           </tr>
         <% end %>

@@ -1,0 +1,28 @@
+it:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      html: '<a href="#" data-toggle="tooltip" title="Obbligatorio"><i class="icon-exclamation-sign"></i></a>'
+    error_notification:
+      default_message: "I seguenti problemi hanno impedito il salvataggio"
+    labels:
+      purchase:
+        title: 'Titolo'
+        description: 'Descrizione'
+        purchase_date: 'Data di acquisto'
+        warranty_duration: 'Durata della garanzia'
+        receipt: 'Ricevuta'
+        invoice: 'Fattura'
+        amount: 'Importo'
+        months: 'mesi'
+        year: 'anno'
+        years: 'anni'
+      incoming:
+        amount: 'Importo'
+        description: 'Descrizione'
+        date: 'Data'
+      outgoing:
+        amount: 'Importo'
+        description: 'Descrizione'
+        date: 'Data'

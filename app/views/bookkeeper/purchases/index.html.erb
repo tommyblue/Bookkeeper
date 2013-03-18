@@ -24,7 +24,7 @@
         <td><%=l purchase.updated_at, format: :short rescue '' %></td>
         <td>
           <%= link_to ('<i class="icon-pencil"></i> ' + t('bookkeeper.actions.edit')).html_safe, edit_purchase_path(purchase), class: 'btn btn-mini' %>
-          <%= link_to ('<i class="icon-remove"></i> ' + t('bookkeeper.actions.destroy')).html_safe, purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+          <%= link_to ('<i class="icon-remove"></i> ' + t('bookkeeper.actions.destroy')).html_safe, purchase, method: :delete, data: { confirm: t('bookkeeper.actions.destroy_confirm', default: 'Are you sure?') }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

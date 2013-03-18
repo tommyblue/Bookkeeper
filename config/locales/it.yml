@@ -1,0 +1,84 @@
+#encoding: utf-8
+it:
+  bookkeeper:
+    # actions
+    actions:
+      save: 'Salva'
+      back: 'Indietro'
+      new: 'Nuovo'
+      edit: 'Modifica'
+      destroy: 'Elimina'
+      destroy_confirm: 'Sei sicuro?'
+    # models
+    models:
+      purchase:
+        attributes:
+          title: 'Titolo'
+          description: 'Descrizione'
+          purchase_date: 'Data di acquisto'
+          warranty_duration: 'Durata della garanzia'
+          receipt: 'Ricevuta'
+          updated_at: 'Ultimo aggiornamento'
+      movement:
+        attributes:
+          amount: 'Importo'
+          description: 'Descrizione'
+          created_at: 'Data di creazione'
+          updated_at: 'Ultimo aggiornamento'
+          date: "Data"
+    # controllers
+    controllers:
+      purchases:
+        creato: "L'acquisto è stato correttamente creato."
+        modificato: "L'acquisto è stato correttamente modificato."
+        destroyed: "L'acquisto è stato correttamente eliminato."
+      incomings:
+        creato: 'Il movimento è stato correttamente creato.'
+        modificato: 'Il movimento è stato correttamente modificato.'
+        destroyed: 'Il movimento è stato correttamente eliminato.'
+      outgoings:
+        creato: 'Il movimento è stato correttamente creato.'
+        modificato: 'Il movimento è stato correttamente modificato.'
+        destroyed: 'Il movimento è stato correttamente eliminato.'
+    # views
+    search:
+      create:
+        title: 'Risultati della ricerca di "%{q}"'
+    purchases:
+      index:
+        title: 'Acquisti'
+        months: 'mesi'
+      new:
+        title: 'Nuovo acquisto'
+      edit:
+        title: "Modifica l'acquisto"
+      search:
+        search: 'Cerca'
+    balance:
+      index:
+        title: 'Ultimi movimenti'
+        new_incoming: 'Nuova entrata'
+        new_outgoing: 'Nuova uscita'
+        date: "Data"
+        account_balance: "Bilancio"
+      balance_chart:
+        title: "Bilancio"
+      movements_chart:
+        title: "Movimento"
+        incomings: "Entrate"
+        outgoings: "Uscite"
+    movements:
+      index:
+        title: 'Ultimi movimenti'
+      new:
+        title: 'Nuovo movimento'
+      edit:
+        title: 'Modifica il movimento'
+      search:
+        search: 'Cerca'
+    incomings:
+      new:
+        title: 'Inserisci una nuova entrata'
+    outgoings:
+      new:
+        title: 'Inserisci una nuova uscita'
