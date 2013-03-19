@@ -29,19 +29,16 @@ module Bookkeeper
     end
 
     def self.default
-      if account = Account.find_by_default(true)
-        account
-      else
-        Account.create(title: "Default", start_date: Time.now, initial_balance: 0.0, default: true)
-      end
+      account = Account.find_by_default(true)
+      account = Account.create(title: "Default", start_date: Time.now, initial_balance: 0.0, default: true) if account.nil?
+
+      account
     end
 
     protected
 
     def default_must_be_uniq
-      if !self.persisted? && Account.where(default: true).first != self
-        errors.add(:base, I18n.t(".default_must_be_uniq"))
-      end
+      errors.add(:base, I18n.t(".default_must_be_uniq")) if Account.find_by_default(true)
     end
   end
 end
