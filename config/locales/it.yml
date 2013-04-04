@@ -29,16 +29,16 @@ it:
     # controllers
     controllers:
       purchases:
-        creato: "L'acquisto è stato correttamente creato."
-        modificato: "L'acquisto è stato correttamente modificato."
+        created: "L'acquisto è stato correttamente creato."
+        updated: "L'acquisto è stato correttamente modificato."
         destroyed: "L'acquisto è stato correttamente eliminato."
       incomings:
-        creato: 'Il movimento è stato correttamente creato.'
-        modificato: 'Il movimento è stato correttamente modificato.'
+        created: 'Il movimento è stato correttamente creato.'
+        updated: 'Il movimento è stato correttamente modificato.'
         destroyed: 'Il movimento è stato correttamente eliminato.'
       outgoings:
-        creato: 'Il movimento è stato correttamente creato.'
-        modificato: 'Il movimento è stato correttamente modificato.'
+        created: 'Il movimento è stato correttamente creato.'
+        updated: 'Il movimento è stato correttamente modificato.'
         destroyed: 'Il movimento è stato correttamente eliminato.'
     # views
     search:
